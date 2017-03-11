@@ -1,7 +1,7 @@
 class Program {
 	public static void sort ( int a[]) {
 		int temp;
-		for (int i=(a.length-1); i>=0; i++) {
+		for (int i=(a.length-1); i>=0; i--) {
 			for (int j = 0; j< (a.length-1); j++) {
 				if (a[j]> a[j+1]) {
 					temp = a[j];

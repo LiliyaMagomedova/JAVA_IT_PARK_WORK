@@ -1,4 +1,3 @@
-package com.company.Task17;
 
 public class Task18 {
     public static void main(String[] args) {

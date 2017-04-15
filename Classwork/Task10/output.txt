@@ -1,0 +1,2 @@
+Rectangle1  a = 2.0  b = 4.0
+Triangle1  a = 3.0  b = 5.0  c = 6.0

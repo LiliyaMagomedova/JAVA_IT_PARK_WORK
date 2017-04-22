@@ -1,0 +1,9 @@
+1 Marsel 23
+2 Regina 19
+3 Alina 18
+4 Ilyas 20
+5 Ruslan 25
+6 Lilya 23
+0 Ilmir 27
+1 Rustam 33
+2 Andrey 24

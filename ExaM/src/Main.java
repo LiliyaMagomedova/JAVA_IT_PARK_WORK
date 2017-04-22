@@ -14,7 +14,7 @@ public class Main {
                     arr[i]=null;
                 }
             }
-
+            System.out.println("Hello!");
         }
     }
 }

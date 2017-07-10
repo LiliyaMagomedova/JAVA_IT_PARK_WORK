@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="lilya:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="lilya-0.1.war">
+      <element id="artifact" artifact-name="lilya:war exploded" />
+    </root>
+  </artifact>
+</component>

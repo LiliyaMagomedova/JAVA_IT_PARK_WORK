@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="hotel@localhost">
+  <database-model serializer="dbm" rdbms="POSTGRES" format-version="4.2">
+    <root id="1"/>
+    <database id="2" parent="1" name="hotel">
+      <ObjectId>24640</ObjectId>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </database>
+    <schema id="3" parent="2" name="public">
+      <ObjectId>2200</ObjectId>
+      <IntrospectionTimestamp>2017-07-12.13:57:47.778</IntrospectionTimestamp>
+      <IntrospectionStateNumber>726</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="2" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+    </schema>
+    <schema id="5" parent="2" name="pg_toast">
+      <ObjectId>99</ObjectId>
+    </schema>
+    <schema id="6" parent="2" name="pg_temp_1">
+      <ObjectId>11816</ObjectId>
+    </schema>
+    <schema id="7" parent="2" name="pg_toast_temp_1">
+      <ObjectId>11817</ObjectId>
+    </schema>
+    <schema id="8" parent="2" name="information_schema">
+      <ObjectId>12081</ObjectId>
+    </schema>
+    <sequence id="9" parent="3" name="guests_id_seq">
+      <ObjectId>24816</ObjectId>
+      <StateNumber>723</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="10" parent="3" name="hibernate_sequence">
+      <ObjectId>24769</ObjectId>
+      <StateNumber>703</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+    </sequence>
+    <sequence id="11" parent="3" name="rooms_id_seq">
+      <ObjectId>24827</ObjectId>
+      <StateNumber>724</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="12" parent="3" name="guests">
+      <ObjectId>24818</ObjectId>
+      <StateNumber>726</StateNumber>
+    </table>
+    <table id="13" parent="3" name="rooms">
+      <ObjectId>24829</ObjectId>
+      <StateNumber>726</StateNumber>
+    </table>
+    <column id="14" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>723</StateNumber>
+      <SequenceName>guests_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;guests_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="15" parent="12" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>723</StateNumber>
+    </column>
+    <column id="16" parent="12" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>723</StateNumber>
+    </column>
+    <column id="17" parent="12" name="passport">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>723</StateNumber>
+    </column>
+    <column id="18" parent="12" name="room_id">
+      <Position>5</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>723</StateNumber>
+    </column>
+    <index id="19" parent="12" name="guests_pkey">
+      <ObjectId>24825</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="20" parent="12" name="guests_pkey">
+      <ObjectId>24826</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>guests_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="21" parent="12" name="fkfpqamv3iqg5ifim5wt4p1xasm">
+      <ObjectId>24835</ObjectId>
+      <ColNames>room_id</ColNames>
+      <RefTableName>rooms</RefTableName>
+      <RefKeyName>rooms_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="22" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>724</StateNumber>
+      <SequenceName>rooms_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;rooms_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="23" parent="13" name="bed_number">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>724</StateNumber>
+    </column>
+    <column id="24" parent="13" name="price">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>724</StateNumber>
+    </column>
+    <column id="25" parent="13" name="guest_id">
+      <Position>4</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>724</StateNumber>
+    </column>
+    <index id="26" parent="13" name="rooms_pkey">
+      <ObjectId>24833</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="27" parent="13" name="rooms_pkey">
+      <ObjectId>24834</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>rooms_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="28" parent="13" name="fk438218nh7cjputi0ceoau4ara">
+      <ObjectId>24840</ObjectId>
+      <ColNames>guest_id</ColNames>
+      <RefTableName>guests</RefTableName>
+      <RefKeyName>guests_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

@@ -1,7 +1,8 @@
 package ru.lilya.dao;
 
-import org.springframework.stereotype.Component;
+import org.springframework.data.jpa.repository.*;
+import ru.lilya.models.GuestRoom;
 
-@Component
 public interface GuestRoomDao {
+
 }

@@ -4,25 +4,48 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="/css/input.css" />
+    <link type="text/css" rel="stylesheet" href="/css/box.css" />
     <title>Guests</title>
 </head>
 <body>
-<div>
+<ul>
+    <li><a href="main.ftl">Главная</a></li>
+    <li><a href="rooms.ftl">Прайс</a></li>
+    <li><a href="newguest.ftl">Регистрация гостя</a></li>
+    <li><a href="#">Контакты</a></li>
+</ul>
+<div class="wrapper_body">
+    <div class="cbm_wrap">
+        <h2>Регистрация гостя</h2>
     <table>
         <tr>
             <th>Регистрация</th>
         </tr>
 
+    <form method="get" action="/new">
+        <tr>
+            <td>
+            <input type="text" id="lastName" name="lastName" placeholder="Фамилия">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="text" id="firstName" name="firstName" placeholder="Имя">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="text" id="passport" name="passport" placeholder="Номер паспорта">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <input type="submit" value="Отправить">
+            </td>
+        </tr>
+    </form>
+
     </table>
-    <form method="post" action="/new">
-
-        <input type="text" id="lastName" name="lastName" placeholder="Фамилия">
-        <input type="text" id="firstName" name="firstName" placeholder="Имя">
-        <input type="text" id="passport" name="passport" placeholder="Номер паспорта">
-        <input type="submit" value="Отправить">
-
-
-
+    </div>
 </div>
 </body>

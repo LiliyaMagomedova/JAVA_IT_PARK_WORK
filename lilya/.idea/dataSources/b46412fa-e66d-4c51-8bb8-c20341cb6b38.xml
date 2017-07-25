@@ -9,8 +9,8 @@
     </database>
     <schema id="3" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-07-12.13:57:47.778</IntrospectionTimestamp>
-      <IntrospectionStateNumber>726</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-07-25.20:41:59.694</IntrospectionTimestamp>
+      <IntrospectionStateNumber>745</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -30,8 +30,8 @@
       <ObjectId>12081</ObjectId>
     </schema>
     <sequence id="9" parent="3" name="guests_id_seq">
-      <ObjectId>24816</ObjectId>
-      <StateNumber>723</StateNumber>
+      <ObjectId>24851</ObjectId>
+      <StateNumber>742</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
@@ -41,105 +41,134 @@
       <SequenceIdentity>1</SequenceIdentity>
     </sequence>
     <sequence id="11" parent="3" name="rooms_id_seq">
-      <ObjectId>24827</ObjectId>
-      <StateNumber>724</StateNumber>
+      <ObjectId>24862</ObjectId>
+      <StateNumber>743</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
-    <table id="12" parent="3" name="guests">
-      <ObjectId>24818</ObjectId>
-      <StateNumber>726</StateNumber>
+    <table id="12" parent="3" name="calendar">
+      <ObjectId>24846</ObjectId>
+      <StateNumber>745</StateNumber>
     </table>
-    <table id="13" parent="3" name="rooms">
-      <ObjectId>24829</ObjectId>
-      <StateNumber>726</StateNumber>
+    <table id="13" parent="3" name="guests">
+      <ObjectId>24853</ObjectId>
+      <StateNumber>745</StateNumber>
     </table>
-    <column id="14" parent="12" name="id">
+    <table id="14" parent="3" name="rooms">
+      <ObjectId>24864</ObjectId>
+      <StateNumber>744</StateNumber>
+    </table>
+    <column id="15" parent="12" name="arrival_date">
       <Position>1</Position>
+      <DataType>date|0</DataType>
+      <StateNumber>741</StateNumber>
+    </column>
+    <column id="16" parent="12" name="departure_date">
+      <Position>2</Position>
+      <DataType>date|0</DataType>
+      <StateNumber>741</StateNumber>
+    </column>
+    <column id="17" parent="12" name="room_id">
+      <Position>3</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>723</StateNumber>
-      <SequenceName>guests_id_seq</SequenceName>
-      <DefaultExpression>nextval(&apos;guests_id_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>741</StateNumber>
     </column>
-    <column id="15" parent="12" name="first_name">
-      <Position>2</Position>
-      <DataType>varchar(255)|0</DataType>
-      <StateNumber>723</StateNumber>
-    </column>
-    <column id="16" parent="12" name="last_name">
-      <Position>3</Position>
-      <DataType>varchar(255)|0</DataType>
-      <StateNumber>723</StateNumber>
-    </column>
-    <column id="17" parent="12" name="passport">
+    <column id="18" parent="12" name="guest_id">
       <Position>4</Position>
-      <DataType>varchar(255)|0</DataType>
-      <StateNumber>723</StateNumber>
-    </column>
-    <column id="18" parent="12" name="room_id">
-      <Position>5</Position>
       <DataType>integer|0</DataType>
-      <StateNumber>723</StateNumber>
+      <NotNull>1</NotNull>
+      <StateNumber>741</StateNumber>
     </column>
-    <index id="19" parent="12" name="guests_pkey">
-      <ObjectId>24825</ObjectId>
-      <ColNames>id</ColNames>
+    <index id="19" parent="12" name="calendar_pkey">
+      <ObjectId>24849</ObjectId>
+      <ColNames>room_id
+guest_id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="20" parent="12" name="guests_pkey">
-      <ObjectId>24826</ObjectId>
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>guests_pkey</UnderlyingIndexName>
+    <key id="20" parent="12" name="calendar_pkey">
+      <ObjectId>24850</ObjectId>
+      <ColNames>room_id
+guest_id</ColNames>
+      <UnderlyingIndexName>calendar_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="21" parent="12" name="fkfpqamv3iqg5ifim5wt4p1xasm">
-      <ObjectId>24835</ObjectId>
+    <foreign-key id="21" parent="12" name="fka15fuxjxejpkqi7s7fm05oh4c">
+      <ObjectId>24870</ObjectId>
       <ColNames>room_id</ColNames>
       <RefTableName>rooms</RefTableName>
       <RefKeyName>rooms_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="22" parent="13" name="id">
-      <Position>1</Position>
-      <DataType>integer|0</DataType>
-      <NotNull>1</NotNull>
-      <StateNumber>724</StateNumber>
-      <SequenceName>rooms_id_seq</SequenceName>
-      <DefaultExpression>nextval(&apos;rooms_id_seq&apos;::regclass)</DefaultExpression>
-    </column>
-    <column id="23" parent="13" name="bed_number">
-      <Position>2</Position>
-      <DataType>integer|0</DataType>
-      <StateNumber>724</StateNumber>
-    </column>
-    <column id="24" parent="13" name="price">
-      <Position>3</Position>
-      <DataType>integer|0</DataType>
-      <StateNumber>724</StateNumber>
-    </column>
-    <column id="25" parent="13" name="guest_id">
-      <Position>4</Position>
-      <DataType>integer|0</DataType>
-      <StateNumber>724</StateNumber>
-    </column>
-    <index id="26" parent="13" name="rooms_pkey">
-      <ObjectId>24833</ObjectId>
-      <ColNames>id</ColNames>
-      <Unique>1</Unique>
-    </index>
-    <key id="27" parent="13" name="rooms_pkey">
-      <ObjectId>24834</ObjectId>
-      <ColNames>id</ColNames>
-      <UnderlyingIndexName>rooms_pkey</UnderlyingIndexName>
-      <Primary>1</Primary>
-    </key>
-    <foreign-key id="28" parent="13" name="fk438218nh7cjputi0ceoau4ara">
-      <ObjectId>24840</ObjectId>
+    <foreign-key id="22" parent="12" name="fki95upxg8faeon1cbqndsvhyl1">
+      <ObjectId>24875</ObjectId>
       <ColNames>guest_id</ColNames>
       <RefTableName>guests</RefTableName>
       <RefKeyName>guests_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
+    <column id="23" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>742</StateNumber>
+      <SequenceName>guests_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;guests_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="24" parent="13" name="first_name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>742</StateNumber>
+    </column>
+    <column id="25" parent="13" name="last_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>742</StateNumber>
+    </column>
+    <column id="26" parent="13" name="passport">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+      <StateNumber>742</StateNumber>
+    </column>
+    <index id="27" parent="13" name="guests_pkey">
+      <ObjectId>24860</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="28" parent="13" name="guests_pkey">
+      <ObjectId>24861</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>guests_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="29" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>743</StateNumber>
+      <SequenceName>rooms_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;rooms_id_seq&apos;::regclass)</DefaultExpression>
+    </column>
+    <column id="30" parent="14" name="bed_number">
+      <Position>2</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>743</StateNumber>
+    </column>
+    <column id="31" parent="14" name="price">
+      <Position>3</Position>
+      <DataType>integer|0</DataType>
+      <StateNumber>743</StateNumber>
+    </column>
+    <index id="32" parent="14" name="rooms_pkey">
+      <ObjectId>24868</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="33" parent="14" name="rooms_pkey">
+      <ObjectId>24869</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>rooms_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/css/box.css" />
     <title>Guests</title>
 </head>
 <body>

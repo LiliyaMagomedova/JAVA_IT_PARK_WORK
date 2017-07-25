@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="/css/box.css" />
     <title>Guests</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
         </tr>
 
     </table>
-    <form method="post" action="/add">
+    <form method="get" action="/add">
 
         <input type="text" id="guestId" name="guestId" placeholder="ID гостя">
         <input type="text" id="roomId" name="roomId" placeholder="Номер комнаты">

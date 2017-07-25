@@ -8,8 +8,6 @@ import java.util.List;
 @Table(name="guests")
 public class Guest {
 
-    //@SequenceGenerator(name="guest_seq", sequenceName="guests_id_seq")
-  //  @GeneratedValue(generator = "guest_seq")
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private int id;
@@ -22,25 +20,19 @@ public class Guest {
 
     @Column
     private String passport;
-/*
-    @OneToMany (mappedBy = "guest")
+
+    @OneToMany (mappedBy = "guest", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GuestRoom> guestRooms;
 
-    /*@ManyToMany
-    @JoinTable(
-            name = "calendar",
-            joinColumns = @JoinColumn (name = "guest_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn (name = "room_id", referencedColumnName = "id"))
-    private List<Room> rooms;*/
-    @OneToOne
-    @JoinColumn(name = "room_id")
-    private Room room;
+  //  @OneToOne
+ //   @JoinColumn(name = "room_id")
+ //   private Room room;
 
     public Guest() {
     }
 
     public Guest( String firstName, String lastName, String passport) {
-//        this.firstName = firstName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.passport = passport;
     }
@@ -75,18 +67,18 @@ public class Guest {
         this.passport = passport;
     }
 
- /*   public List<GuestRoom> getGuestRooms() {
+    public List<GuestRoom> getGuestRooms() {
         return guestRooms;
     }
 
     public void setGuestRooms(List<GuestRoom> guestRooms) {
         this.guestRooms = guestRooms;
-    }
+    }/*
 
     public void addRoomToGuest(Room room) {
         guestRooms.add(room.getId(), guestRoom);
-    }*/
-
+    }
+*/
     @Override
     public String toString() {
         return "Guest{" +

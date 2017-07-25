@@ -1,9 +1,9 @@
 package ru.lilya.services;
 
 import ru.lilya.dao.GuestDao;
-import ru.lilya.dao.GuestRoomDao;
 import ru.lilya.dao.RoomDao;
 import ru.lilya.models.Guest;
+import ru.lilya.models.GuestRoom;
 import ru.lilya.models.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,20 +22,19 @@ public class GuestServiceImpl implements GuestService {
     @Autowired
     private RoomDao roomDao;
 
-
     @Override
     public void addGuest(Guest guest) {
         guestDao.save(guest);
     }
 
-    @Override
-    public void addRoomToGuest(int roomId, int guestId) {
+
+    public void addRoomToGuest(int guestId, int roomId) {
         Guest guest = guestDao.findOne(guestId);
         Room room = roomDao.findOne(roomId);
-        //room.;
-     //   guestDao.save(guest);
+        GuestRoom guestRoom = new GuestRoom(guest,room);
+        guest.getGuestRooms().add(guestRoom);
+        room.getGuestRooms().add(guestRoom);
     }
-
 
     @Override
     public List<Room> getRooms() {

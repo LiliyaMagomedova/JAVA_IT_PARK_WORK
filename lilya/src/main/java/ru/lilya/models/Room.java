@@ -17,18 +17,25 @@ public class Room {
     @Column
     private int price;
 
-
- /*   @OneToMany(mappedBy = "room")
+    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<GuestRoom> guestRooms;
-
+/*
     @ManyToMany (mappedBy = "rooms")
-    private List<Guest> guests;*/
+    private List<Guest> guests;
 
     @OneToOne
     @JoinColumn(name = "guest_id", insertable = false, updatable = false)
-    private Guest guest;
+    private Guest guest;*/
 
     public Room() {
+    }
+
+    public List<GuestRoom> getGuestRooms() {
+        return guestRooms;
+    }
+
+    public void setGuestRooms(List<GuestRoom> guestRooms) {
+        this.guestRooms = guestRooms;
     }
 
     public int getId() {
@@ -50,6 +57,5 @@ public class Room {
     public void setPrice(int price) {
         this.price = price;
     }
-
 
 }

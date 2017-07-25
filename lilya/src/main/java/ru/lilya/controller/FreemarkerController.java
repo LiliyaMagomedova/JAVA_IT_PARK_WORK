@@ -1,17 +1,16 @@
 package ru.lilya.controller;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.web.bind.annotation.*;
 import ru.lilya.models.Guest;
 import ru.lilya.models.GuestRoom;
 import ru.lilya.models.Room;
 import org.springframework.ui.ModelMap;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import ru.lilya.services.GuestService;
 
 import java.util.List;
-import java.sql.Date;
 
 @Controller
 public class FreemarkerController {
@@ -19,42 +18,23 @@ public class FreemarkerController {
     @Autowired
     private GuestService guestService;
 
-
-
-    @RequestMapping (value = "new", method = RequestMethod.POST)
-    public String addtobase (@ModelAttribute ("guest") Guest guest,
-                            @RequestParam ("lastName") String lastName,
-                           @RequestParam ("firstName") String firstName,
-                           @RequestParam ("passport") String passport ) {
-
-        guest.setLastName(lastName);
-        guest.setFirstName(firstName);
-        guest.setPassport(passport);
-        guestService.addGuest(guest);
+    @GetMapping (value = "new")
+    public String addtobase (@RequestParam ("lastName") String lastName,
+                             @RequestParam ("firstName") String firstName,
+                             @RequestParam ("passport") String passport ) {
+        guestService.addGuest(new Guest (firstName,lastName,passport));
         return "redirect:guests";
     }
-
-    @RequestMapping (value = "add", method = RequestMethod.POST)
-    public String addRoom (@ModelAttribute ("guest") Guest guest,
-                           @RequestParam ("guestId") int guestId,
-                           @RequestParam ("roomId") int roomId ) {
-        guestService.addRoomToGuest(roomId,guestId);
-        return "redirect:guests";
-    }
-
-
 
     @GetMapping(value = "/newguest")
     public String addnew(@ModelAttribute ("model") Guest model){
         return "newguest";
     }
 
-    @GetMapping(value = "/addroom")
-    public String addnewroom(@ModelAttribute ("model") Guest model){
-        return "addroom";
+    @GetMapping(value = "/main")
+    public String home(@ModelAttribute ("model") Guest model){
+        return "main";
     }
-
-
 
     @GetMapping(value = "/guests")
     public String getGuests (@ModelAttribute ("model") ModelMap model) {
@@ -70,5 +50,16 @@ public class FreemarkerController {
         return "rooms";
     }
 
+    @GetMapping(value = "/addroom")
+    public String addnewroom(@ModelAttribute ("model") Guest model){
+        return "addroom";
+    }
+
+    @GetMapping (value = "add")
+    public String addRoomToGuest (@RequestParam ("guestId") int guestId,
+                                  @RequestParam ("roomId") int roomId ) {
+        guestService.addRoomToGuest(guestId,roomId);
+        return "redirect:guests";
+    }
 }
 

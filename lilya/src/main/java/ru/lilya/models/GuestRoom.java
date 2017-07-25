@@ -1,15 +1,13 @@
 package ru.lilya.models;
 
-import org.dom4j.datatype.DatatypeElementFactory;
-
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Date;
 
-//@Entity
-//@Table (name = "calendar")
+@Entity
+@Table (name = "calendar")
 public class GuestRoom implements Serializable {
-/*
+
     @Id
     @ManyToOne
     @JoinColumn(name = "guest_id")
@@ -25,6 +23,14 @@ public class GuestRoom implements Serializable {
 
     @Column(name = "departure_date")
     private Date departureDate;
+
+    public GuestRoom() {
+    }
+
+    public GuestRoom(Guest guest, Room room) {
+        this.guest = guest;
+        this.room = room;
+    }
 
     public Guest getGuest() {
         return guest;
@@ -57,5 +63,4 @@ public class GuestRoom implements Serializable {
     public void setDepartureDate(Date departureDate) {
         this.departureDate = departureDate;
     }
-    */
 }
